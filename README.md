@@ -5,24 +5,23 @@ myst2 is a lightweight 2D game engine for the web.
 v0.0.0
 
 > [!NOTE]
-> This project is a work in progress and isn't currently usable in any way, shape or form.
+> This project is a work in progress and isn't currently usable in any way, shape or form. Grab a time machine and check back at a later time.
 
 ## Features
 
-- Single file (minified: XYKB) with zero external dependencies
-- Supports all modern browsers
+- Works in all modern browsers
 - Class based, easily extensible API
 - Asset preloading and management
 - Mouse, touch and keyboard input
-- Persistent configuration and data
-- Based around intuitive concepts of Surfaces and States
-- User interface extension
+- Persistent configuration
+- Many features out of the box (math, data structures and algorithms, randomness)
+- Extensions (UI, map import)
 
 ## Reference and Quick Start
 
-See the [myst2 wiki](https://github.com/metayeti/myst2/wiki) for help.
+Check out the [myst2 wiki](https://github.com/metayeti/myst2/wiki) for help and a quick start guide.
 
-See the [documentation](/doc) for reference.
+See the [documentation](/doc) for API reference.
 
 ## Minimal example
 
