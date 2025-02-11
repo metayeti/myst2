@@ -1,0 +1,9 @@
+# temporary files
+*~
+*.swp
+*.swo
+*.vim
+.vscode
+
+# ignored folders
+node_modules/

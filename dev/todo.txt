@@ -1,0 +1,4 @@
+- 0.0.1 -
+[ ] base class hierarchy + impl.
+[ ] hello world demo
+[ ] build system
