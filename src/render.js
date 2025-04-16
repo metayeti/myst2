@@ -16,9 +16,21 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
+ * Render modes for rendering primitives
+ */
+const RENDER_MODE = {
+	FILL: 0,
+	STROKE: 1,
+	BOTH: 2
+};
+
+/**
  * Renderer class. Can be extended for custom features.
  */
 export class Render {
+// ~ private
+	#mode = RENDER_MODE.FILL;
+
 // ~ public
 
 	/**
@@ -35,6 +47,51 @@ export class Render {
 		if (ctx !== undefined) {
 			this.ctx = ctx;
 		}
+	}
+
+	/**
+	 * Primitives will be rendered using strokes.
+	 * 
+	 * @param {string} strokeColor
+	 * @param {number} [strokeWidth]
+	 *
+	 * @returns {this}
+	 */
+	stroke(strokeColor, strokeWidth = 1) {
+		if (strokeColor !== undefined) ctx.strokeStyle = strokeColor;
+		if (strokeWidth !== undefined) ctx.width = strokeWidth;
+		this.#mode = RENDER_MODE.STROKE;
+		return this;
+	}
+
+	/**
+	 * Primitives will be rendered using a fill.
+	 *
+	 * @param {string} fillColor 
+	 *
+	 * @returns {this}
+	 */
+	fill(fillColor) {
+		if (fillColor !== undefined) ctx.fillStyle = fillColor;
+		this.#mode = RENDER_MODE.FILL;
+		return this;
+	}
+
+	/**
+	 * Primitives will be rendered both with stroke and a fill.
+	 *
+	 * @param {string} fillColor
+	 * @param {string} strokeColor
+	 * @param {number} [strokeWidth]
+	 *
+	 * @returns {this}
+	 */
+	style(fillColor, strokeColor, strokeWidth = 1) {
+		if (strokeColor !== undefined) ctx.strokeStyle = strokeColor;
+		if (strokeWidth !== undefined) ctx.width = strokeWidth;
+		if (fillColor !== undefined) ctx.fillStyle = fillColor;
+		this.#mode = RENDER_MODE.BOTH;
+		return this;
 	}
 
 	line() {

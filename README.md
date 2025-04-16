@@ -32,8 +32,11 @@ class MyState extends State {
 		// clear the surface
 		this.surface.clear();
 		// draw some shapes
-		this.render.rectFill(10, 10, 50, 50, 'orange');
-		this.render.circleFill(100, 100, 30, 'blue');
+		this.render
+			.fill('orange')
+			.rect(10,10,50,50)
+			.stroke('blue', 2)
+			.circle(100, 100, 30);
 	}
 }
 

@@ -31,6 +31,8 @@ export class State {
 	constructor() {
 	}
 
+
+
 	/**
 	 * Initializes this screen.
 	 *
