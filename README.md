@@ -2,8 +2,6 @@
 
 myst2 is a lightweight 2D game engine for the web.
 
-v0.0.0
-
 > [!NOTE]
 > This project is a work in progress and isn't currently usable in any way, shape or form. Grab a time machine and check back at a later time.
 
@@ -26,10 +24,10 @@ See the [documentation](/doc) for API reference.
 ## Minimal example
 
 ```JavaScript
-import { View, Application } from 'myst2';
+import { Screen, Application } from 'myst2';
 
-// create a game view
-class MyView extends View {
+// create a game screen
+class MyScreen extends Screen {
 	onDraw() {
 		// clear the surface
 		this.surface.clear();
@@ -43,9 +41,11 @@ class MyView extends View {
 class Game extends Application {
 	constructor() {
 		super({ // setup game
-			$canvas: document.querySelector('#my-canvas'),
+			canvas: '#my-canvas',
 			useSimpleLoop: true, // just draw() and don't update()
-			initialView: new MyView()
+			screens: [ // list of game screens
+				new MyScreen() // first item in list is the initial screen
+			]
 		});
 	}
 }

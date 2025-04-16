@@ -11,11 +11,13 @@
 //
 //  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
-//  myst2.js
-//  -
-//  This sourcefile serves as the main hub of exports for myst2.
+//  myst2/src/myst2.js
 //
 ////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * This sourcefile serves as the main export hub for the engine.
+ */
 
 //
 // namespace exports
