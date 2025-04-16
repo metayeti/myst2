@@ -1,0 +1,26 @@
+{
+  "name": "myst2",
+  "version": "0.0.0",
+  "description": "2D game engine for teh webz",
+  "main": "src/myst2.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metayeti/myst2.git"
+  },
+  "keywords": [
+    "game",
+    "engine"
+  ],
+  "author": "Danijel Durakovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metayeti/myst2/issues"
+  },
+  "homepage": "https://github.com/metayeti/myst2#readme"
+}

@@ -14,8 +14,8 @@ v0.0.0
 - Asset preloading and management
 - Mouse, touch and keyboard input
 - Persistent configuration
-- Many features out of the box (math, data structures and algorithms, randomness)
-- Extensions (UI, map import)
+- Many features out of the box (math, data structures/algorithms, randomness)
+- Extensions
 
 ## Reference and Quick Start
 
@@ -26,10 +26,10 @@ See the [documentation](/doc) for API reference.
 ## Minimal example
 
 ```JavaScript
-import { Screen, Application } from 'myst2';
+import { View, Application } from 'myst2';
 
-// create a game screen
-class MyScreen extends Screen {
+// create a game view
+class MyView extends View {
 	onDraw() {
 		// clear the surface
 		this.surface.clear();
@@ -39,13 +39,13 @@ class MyScreen extends Screen {
 	}
 }
 
-// create the game application
+// create the game
 class Game extends Application {
 	constructor() {
 		super({ // setup game
 			$canvas: document.querySelector('#my-canvas'),
-			useSimpleLoop: true, // just draw() screens and don't update() them
-			initialScreen: new MyScreen()
+			useSimpleLoop: true, // just draw() and don't update()
+			initialView: new MyView()
 		});
 	}
 }
