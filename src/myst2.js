@@ -39,4 +39,4 @@ export { Surface } from './surface.js';
 //export { KeyboardInput } from './keyboard_input.js';
 //export { ControllerInput } from './controller_input.js';
 export { State } from './state.js';
-export { Application } from './application.js';
+export { Game } from './game.js';

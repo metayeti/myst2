@@ -11,19 +11,18 @@
 //
 //  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
-//  myst2/src/application.js
+//  myst2/src/game.js
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * Represents a myst2 application. Handles initialization, main loop and manages
- * views.
+ * Represents a myst2 game. Handles initialization, main loop and manages views.
  */
-export class Application {
+export class Game {
 // ~ public
 
 	/**
-	 * Various available application view modes.
+	 * Various available game view modes.
 	 */
 	static VIEW_MODE = {
 		// Default view mode. Behaves the same as a <canvas> would normally.
@@ -51,7 +50,7 @@ export class Application {
 	#running = false;
 
 	/**
-	 * Application's canvas DOM element.
+	 * Game's primary canvas.
 	 * 
 	 * @type {HTMLCanvasElement}
 	 * @private
@@ -69,15 +68,15 @@ export class Application {
 // ~ public
 
 	/**
-	 * Creates the application.
+	 * Creates the game.
 	 *
 	 * @param {object} options
 	 * @param {HTMLCanvasElement} options.canvas The <canvas> element.
 	 * @param {object} options.state Initial game state.
-	 * @param {number} [options.viewMode=VIEW_MODE.DEFAULT] Global application
-	 *   view mode. Use one of the enumerated VIEW_MODE options.
-	 * @param {bool} [options.useSimpleLoop=false] Normally, the application's
-	 *   screens implement both draw() and update() functions which get called
+	 * @param {number} [options.viewMode=VIEW_MODE.DEFAULT] Global game view
+	 *   mode. Use one of the enumerated VIEW_MODE options.
+	 * @param {bool} [options.useSimpleLoop=false] Normally, the game's screens
+	 *   implement both draw() and update() functions which are typically called
 	 *   out of sync (relative to drawing vs frame-rate). However, many games
 	 *   have no need for a separate update() function since they handle logic
 	 *   either on a user-driven-event basis, or they simply utilize intervals
@@ -99,19 +98,19 @@ export class Application {
 		if (!(canvas instanceof HTMLCanvasElement)) {
 			// we got something funny, perhaps an upside down cat but definitely
 			// not a <canvas>
-			throw 'Application needs to be initialized on a <canvas> element.';
+			throw 'Game needs to be initialized on a <canvas> element.';
 		}
 		this.#canvas = canvas;
 
 		// set intial game state
 		if (options.state === undefined) {
-			throw 'Application needs an initial state.';
+			throw 'Game needs an initial state.';
 		}
-		setState(options.state);
+		this.setState(options.state);
 	}
 
 	/**
-	 * Sets the application view mode, which has an effect on how the game gets
+	 * Sets the game's view mode, which has an effect on how the game gets
 	 * rendered on the screen - canvas dimensions may change. This also changes
 	 * how pointer events translate coordinates.
 	 *

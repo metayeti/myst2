@@ -15,7 +15,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-import Render from './render.js';
+import { Render } from './render.js';
 
 const DEFAULT_SURFACE_WIDTH = 50;
 const DEFAULT_SURFACE_HEIGHT = 50;

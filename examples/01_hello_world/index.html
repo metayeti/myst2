@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>myst2 example - 01_hello_world</title>
+	<link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+	<main>
+		<!-- Game's canvas -->
+		<canvas id="game" width="500" height="400"></canvas>
+	</main>
+	<!--
+	Define the importmap.
+	(This is useful for working directly with library sources)
+	-->
+	<script type="importmap">
+{
+	"imports": {
+		"myst2": "./../../src/myst2.js"
+	}
+}
+	</script>
+	<!-- Game's source -->
+	<script type="module" src="src/code.js"></script>
+</body>
+</html>
