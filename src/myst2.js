@@ -16,7 +16,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * This sourcefile serves as the main export hub for the engine.
+ * This sourcefile serves as the main export hub for this engine. Everything
+ * (except engine extensions) is importable from this file. (Makes life easier
+ * for the user.)
  */
 
 //
@@ -25,9 +27,16 @@
 
 export * as math from './math.js';
 export * as random from './random.js';
+export * as util from './util.js';
 
 //
 // class exports
 //
 
+export { Render } from './render.js';
+export { Surface } from './surface.js';
+//export { PointerInput } from './pointer_input.js';
+//export { KeyboardInput } from './keyboard_input.js';
+//export { ControllerInput } from './controller_input.js';
+export { State } from './state.js';
 export { Application } from './application.js';

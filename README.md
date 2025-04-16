@@ -24,10 +24,10 @@ See the [documentation](/doc) for API reference.
 ## Minimal example
 
 ```JavaScript
-import { Screen, Application } from 'myst2';
+import { State, Application } from 'myst2';
 
-// create a game screen
-class MyScreen extends Screen {
+// create a game state
+class MyState extends State {
 	onDraw() {
 		// clear the surface
 		this.surface.clear();
@@ -38,21 +38,23 @@ class MyScreen extends Screen {
 }
 
 // create the game
-class Game extends Application {
+class MyGame extends Game {
 	constructor() {
 		super({ // setup game
 			canvas: '#my-canvas',
-			useSimpleLoop: true, // just draw() and don't update()
-			screens: [ // list of game screens
-				new MyScreen() // first item in list is the initial screen
-			]
+			state: new MyState(), // initial game state
+			useSimpleLoop: true // just draw() and don't update()
 		});
 	}
 }
 
 // run the game
-new Game().run();
+new MyGame().run();
 ```
+
+## Credits
+
+- [howler.js](https://howlerjs.com/) - audio library used in some examples
 
 ## License
 

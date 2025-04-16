@@ -19,9 +19,12 @@
  * Represents a myst2 application. Handles initialization, main loop and manages
  * views.
  */
-export default class Application {
-// : public
+export class Application {
+// ~ public
 
+	/**
+	 * Various available application view modes.
+	 */
 	static VIEW_MODE = {
 		// Default view mode. Behaves the same as a <canvas> would normally.
 		DEFAULT: 0,
@@ -37,32 +40,40 @@ export default class Application {
 		EXPAND: 4
 	};
 
-// : private
+// ~ private
 
 	/**
 	 * Determines if the game loop is currently running.
+	 * 
 	 * @type {boolean}
 	 * @private
 	 */
 	#running = false;
 
 	/**
-	 * Application's canvas. This is the only DOM element this engine requires.
+	 * Application's canvas DOM element.
+	 * 
 	 * @type {HTMLCanvasElement}
+	 * @private
 	 */
 	#canvas = null;
 
 	/**
-	 * Handles application resizes for specific view modes.
+	 * Currently active game state.
+	 *
+	 * @type {object}
+	 * @private
 	 */
+	#state = null;
 
-// : public
+// ~ public
 
 	/**
 	 * Creates the application.
 	 *
 	 * @param {object} options
 	 * @param {HTMLCanvasElement} options.canvas The <canvas> element.
+	 * @param {object} options.state Initial game state.
 	 * @param {number} [options.viewMode=VIEW_MODE.DEFAULT] Global application
 	 *   view mode. Use one of the enumerated VIEW_MODE options.
 	 * @param {bool} [options.useSimpleLoop=false] Normally, the application's
@@ -77,9 +88,9 @@ export default class Application {
 	 *   functions in your screens and tie the game's logic to it.
 	 * @param {number} [options.framerate=60] Game's framerate. Ignored when
 	 *   the simple loop is used.
-	 * @param 
 	 */
 	constructor(options = {}) {
+		// configure <canvas>
 		const canvas = (
 			(options.canvas instanceof HTMLCanvasElement)
 			? options.canvas // we received <canvas> directly
@@ -91,5 +102,68 @@ export default class Application {
 			throw 'Application needs to be initialized on a <canvas> element.';
 		}
 		this.#canvas = canvas;
+
+		// set intial game state
+		if (options.state === undefined) {
+			throw 'Application needs an initial state.';
+		}
+		setState(options.state);
+	}
+
+	/**
+	 * Sets the application view mode, which has an effect on how the game gets
+	 * rendered on the screen - canvas dimensions may change. This also changes
+	 * how pointer events translate coordinates.
+	 *
+	 * @param {number} mode - One of the options in VIEW_MODE.
+	 */
+	setViewMode(mode) {
+		function _setview(_mode) {
+			//TODO
+		}
+		// sets the view mode
+		switch (mode) {
+			case VIEW_MODE.DEFAULT:
+				return _setview(this.viewMode = VIEW_MODE.DEFAULT);
+			case VIEW_MODE.CENTER:
+				return _setview(this.viewMode = VIEW_MODE.CENTER);
+			case VIEW_MODE.SCALE_FIT:
+				return _setview(this.viewMode = VIEW_MODE.SCALE_FIT);
+			case VIEW_MODE.SCALE_STRETCH:
+				return _setview(this.viewMode = VIEW_MODE.SCALE_STRETCH);
+			case VIEW_MODE.EXPAND:
+				return _setview(this.viewMode = VIEW_MODE.EXPAND);
+		}
+	}
+
+	/**
+	 * Retreives the currently active view mode.
+	 */
+	getViewMode() {
+		return this.viewMode;
+	}
+
+	/**
+	 * Forces a view update. This may be necessary to prevent flickering when
+	 * switching between view updates often.
+	 */
+	forceUpdateView() {
+		//TODO
+	}
+
+	/**
+	 * Sets the next state to be active. Only the next state will be receiving
+	 * events and rendering to sreen, while the previous will be made inactive.
+	 *
+	 * @param {object} next Next state.
+	 */
+	setState(next) {
+		//TODO
+	}
+
+	/**
+	 * Enter the main game loop.
+	 */
+	run() {
 	}
 }
