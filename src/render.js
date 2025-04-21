@@ -16,7 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * Render modes for rendering primitives
+ * Render modes for rendering primitives.
  */
 const RENDER_MODE = {
 	FILL: 0,
@@ -158,7 +158,7 @@ export class Render {
 		throw 'text() not implemented yet';
 	}
 
-	bmptext() {
+	bmptext(text, x, y, bmpfont) {
 		throw 'bmptext() not implemented yet';
 	}
 }

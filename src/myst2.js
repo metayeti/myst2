@@ -17,8 +17,7 @@
 
 /**
  * This sourcefile serves as the main export hub for this engine. Everything
- * (except engine extensions) is importable from this file. (Makes life easier
- * for the user.)
+ * (except engine extensions) is importable from this file.
  */
 
 //

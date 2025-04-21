@@ -42,7 +42,7 @@ export function coinClip() {
 
 /**
  * Returns the result of a die roll. Rolls a standard 6-sided die when no input
- * is given.
+ * is provided.
  *
  * @param {number} [N=6] Numbers of sides on the die.
  *

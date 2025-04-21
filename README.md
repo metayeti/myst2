@@ -7,6 +7,7 @@ myst2 is a lightweight 2D game engine for the web.
 
 ## Features
 
+- Zero dependencies
 - Works in all modern browsers
 - Class based, easily extensible API
 - Asset preloading and management
@@ -33,10 +34,8 @@ class MyState extends State {
 		this.surface.clear();
 		// draw some shapes
 		this.render
-			.fill('orange')
-			.rect(10,10,50,50)
-			.stroke('blue', 2)
-			.circle(100, 100, 30);
+			.fill('orange').rect(10, 10, 50, 50)
+			.stroke('blue', 2).circle(100, 100, 30);
 	}
 }
 

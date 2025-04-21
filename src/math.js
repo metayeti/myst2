@@ -24,9 +24,8 @@
 //
 
 // --------
-// for internal class-to-class communication
-// (so we skip comparing constructor.name strings like cavemen)
-
+// this is for internal class-to-class communication only
+// (so we may skip comparing constructor.name strings like cavemen)
 const POINT_CLASS = 0;
 //const LINE_CLASS = 1;
 const RECTANGLE_CLASS = 2;
