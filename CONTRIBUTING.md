@@ -4,7 +4,7 @@ Thank you for considering contributing to the myst2 engine. I welcome all contri
 
 ## Code of Conduct
 
-By participating in the development of this project, you agree to the following common-sense requirements:
+By participating in the development of this project, you agree to the following common-sense rules of engagement:
 
 1. **Respect**: Treat everyone with kindness and fairness.
 2. **Integrity**: Be honest and ethical in all actions.
@@ -125,7 +125,7 @@ This is not strictly enforced, but highly recommended. Try to code in a way wher
 
 ### 6. Make all variables `const` by default
 
-Everything should be immutable and so `const` by default, except the things you explicitly don't want to be `const`. Always default to `const` before using `let` if you don't already know that the variable you're going to need should be mutable.
+Everything should be `const` by default, except the things you explicitly don't want to be `const`. Always default to `const` before using `let` if you don't already know that the variable you're going to need will change down the line.
 
 ### 7. All-uppercase any hardcoded constants
 
@@ -276,12 +276,12 @@ else {
 
 ```JS
 switch (condition) {
-	optionA:
+	case optionA:
 		return;
-	optionB:
-	optionC:
+	case optionB:
+	case optionC:
 		break;
-	optionD:
+	case optionD:
 		{
 			/* larger code block */
 		}
@@ -535,7 +535,7 @@ Write the docs,
 or the code's a mystery!
 ```
 
-The myst2 engine aims to be **thoroughly** documented. This means that you need to document the features you add in the [myst 2 wiki](https://github.com/metayeti/myst2/wiki) (which serves as the official project's documentation). Contributing to this codebase you implicitly agree that you will document your new features accordingly. I know writing documentation sucks, but we need to do it anyway. It's what separates projects that work out long-term and those that don't.
+The myst2 engine aims to be **thoroughly** documented. This means that you need to document the features you add in the [myst 2 wiki](https://github.com/metayeti/myst2/wiki) (which serves as the official project's documentation). Contributing to this codebase you implicitly agree that you will document your new features accordingly.
 
 I will give you wiki privileges after your first PR is accepted.
 
