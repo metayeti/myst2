@@ -67,7 +67,7 @@ Run:
 npm run lint
 ```
 
-And make sure it passes with no issues. PRs with a failed lint test will be discarded
+And make sure it passes with no issues. PRs with a failed lint test will be discarded.
 
 #### Step 4: Submit a PR
 
@@ -95,21 +95,23 @@ All code is inspected and approved by me so it may take some time before I get t
 
 ## Code style guide
 
-Please adhere, as strictly as possible, to the following style guide when adding code to this codebase.
+Please adhere, as strictly as physics allows at any given moment, to the following style guide when adding code to this codebase.
 
 ### 1. Write optimal and performant code
 
-Write code that performs optimally.
+Write code that performs optimally. Always consider performance.
 
 Avoid obvious things like string comparisons, duplicating memory, adding unnecessary objects to memory, having poor locality in your memory and similar. Avoid needless complexity. Use optimal algorithms and data structures. Prefer simple for loops to functional nesting, especially when dealing with realtime functions. A 6-deep for loop has significantly less overhead for the JS engine than a 6-deep functional tower.
 
-Opposite to what you normally hear, when working on this codebase I want you to optimize early and plan ahead. Above all, this is a game engine and as such, performance is a first-class citizen and should be on your mind regardless of what you're doing. Don't do something foolish like executing expensive code 60 frames per second. Off-load render surfaces when possible. In the myst.ui extension for example, all labels are surfaces because rendering text is expensive but rendering surfaces is cheap, and you only have to render text once and not 60 times per second. Use common sense and be vigilant about performance at all times.
+Opposite to what you normally hear, when working on this codebase I want you to optimize early and plan ahead. Above all, this is a game engine and as such, performance is a first-class citizen and should be on your mind regardless of what you're doing. Don't do something foolish like executing expensive code 60 frames per second. Off-load render surfaces when possible. In the myst.ui extension for example, all labels are prerendered onto surfaces because rendering text is expensive but rendering surfaces is cheap, and you only have to render text once and not 60 times per second. Use common sense and be vigilant about performance at all times.
 
 This is a strict requirement and rule #1 for a reason.
 
 ### 2. Keep the code simple and try not to repeat yourself too much
 
-This is a given but is stated here explicitly for added emphasis. Simple, straightforward code is maintainable code and it also tends to be fast code.
+This is a given but is stated here explicitly for added emphasis.
+
+Simple, straightforward code is maintainable code and it also tends to be fast code.
 
 ### 3. Use tabs and only tabs to indent code
 
@@ -121,11 +123,11 @@ Some codebases go fancy with the no-semicolon style, but this is not one of them
 
 ### 5. Stick to 80 columns as best you can
 
-This is not strictly enforced, but highly recommended. Try to code in a way where if you shrink the editor view down to 80 columns (with 4-width tabs), you can still read most of the code. Especially try to limit comments to the 80-column boundary. An occasional line of code may go beyond, but try to limit those instances.
+This is not strictly enforced, but highly recommended. Try to code in a way where if you shrink the editor view down to 80 columns (with 4-wide tabs), you can still read most of the code. Especially try to limit comments to the 80-column boundary. An occasional line of code may go beyond, but try to limit those instances.
 
-### 6. Make all variables `const` by default
+### 6. Make variables `const` by default
 
-Everything should be `const` by default, except the things you explicitly don't want to be `const`. Always default to `const` before using `let` if you don't already know that the variable you're going to need will change down the line.
+Everything should be `const` by default, except the things you explicitly don't want to be `const`. Always default to `const` before using `let` if you don't already know that the variable you're going to need will change down the line. Never use `var`.
 
 ### 7. All-uppercase any hardcoded constants
 
@@ -157,15 +159,17 @@ export class MyClass {
 ```
 
 
-### 8. Use comments and use them a lot
+### 8. Use comments
 
-This codebase isn't shy of comments and you should use them wherever needed. The author of this project does not believe in "self-documenting code", only self-documenting mess.
+Use comments judiciously. Comments provide cognitive context for code and are as such invaluable in the long-term. The author of this project does not believe in "self-documenting code", only self-documenting mess. Comment, and comment well.
 
-Use comments, but at the same time don't overuse them. You shouldn't have `// this is bridge` followed by a bridge, but you should add comments where they add value and document what's going on, or your thought process. Plan ahead and don't write comments for code that you plan to change later on. Be mindful so that all comments are actually relevant to the code and don't become historic artifacts.
+Don't overuse comments. You shouldn't have `// this is bridge` followed by a bridge, but you should add comments where they add value and document what's going on or explain your thought process. Plan ahead and be mindful about accuracy so that comments are actually relevant to the code and don't become inaccurate historic artifacts. When changing code, you should update comments accordingly.
 
-Use proper punctuation and grammar in your comments. Capitalize your comments when they are more than a single sentence long. As a general rule, I tend to capitalize comments within `/**/` blocks and all-lowercase single-lined comments starting with `//`.
+It's perfectly fine to leave a lot of code uncommented, too, but only if it's obvious what it is doing. Use your best judgment.
 
-Stick to 80 columns (with 4-wide tabs) which is particularly important for JSDoc-style comments.
+Use proper punctuation and grammar in your comments. Capitalize your comments when they are more than a single sentence long. As a convention, capitalize comments within `/**/` blocks while keeping single-line `//` comments lowercase.
+
+When writing comments, stick to the 80 columns (with 4-wide tabs) boundary, this is especially important for JSDoc-style comments so that the documented functions fit into a narrow editor view.
 
 ### 9. Add spaces when listing function parameters or items in an array
 
@@ -183,17 +187,9 @@ foo(1,2,'a','b'); // not this
 
 ### 10. Expand, and expand a lot
 
-If your line of code is getting long, then you should consider expanding it into multiple lines from the first bracket onward, and using an indent level for the items.
+If your line of code is getting long, then you should consider expanding it into multiple lines from the first bracket onward, and using an indent level for the inner items.
 
 Examples:
-
-```JS
-const canvas = (
-	(options.canvas instanceof HTMLCanvasElement)
-	? options.canvas // we received <canvas> directly
-	: document.querySelector(options.canvas) // we probably have a query
-);
-```
 
 ```JS
 return new Vector2D(
@@ -214,10 +210,11 @@ return new Vector2D(
 For example:
 
 ```JS
-const something =
-	thisIsMyLongTernaryCondition
-	? result1
-	: result2;
+const canvas = (
+	(options.canvas instanceof HTMLCanvasElement)
+	? options.canvas // we received <canvas> directly
+	: document.querySelector(options.canvas) // we probably have a query
+);
 ```
 
 ### 12. When chaining functions, break the calls into lines
@@ -429,9 +426,9 @@ If you're making a feature that has multiple components and thinking about havin
 
 #### 2. Make sure the filename is all lowercase, with `_` symbols used for spaces.
 
-Always name things `my_thing.js` and not, for example `mything.js` (and definitely not `my thing.js`).
+Always name things `my_thing.js` and not, for example `mything.js`.
 
-Make the name short and descriptive. No overly long names.
+Make the file names short and descriptive. No overly long names.
 
 #### 3. Add the branding header to the very top of the file
 
@@ -449,7 +446,7 @@ Make the name short and descriptive. No overly long names.
 //
 //  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
-//  myst2/src/$YOUR_FILE.js
+//  myst2/src/your_file.js
 //
 ////////////////////////////////////////////////////////////////////////////////
 ```
@@ -470,11 +467,11 @@ If you are working on an engine extension, use the following header instead:
 //
 //  ::: EXTENSION ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
-//  myst2.$MyExtension
+//  myst2.your_extension
 //
 //  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //
-//  myst2/src/$YOUR_FILE.js
+//  myst2/extensions/your_extension/src/your_file.js
 //
 ////////////////////////////////////////////////////////////////////////////////
 ```
@@ -524,6 +521,13 @@ export { YourFeature } from './your_source.js';
 
 Do the same if working on an extension, except in the main export hub of your extension (for example, `/extensions/your_extension/your_extension.js`);
 
+## Why don't you use [my favorite autoformatter]?
+
+While autoformatters are a necessary evil in large projects to save teams time, I consider them unholy, especially for small, passion-driven projects like this one.
+
+Please understand that this is a one-man led project. All code goes through me and is only merged in if I personally approve it, so there's no disagreements to be had about code style. Code formatters tend to prioritize consistency over flexibility, which steamrolls any number of nuanced code styling choices and makes code lifeless, corporate and boring to work with. I wish to maintain an exact, well-defined and relatively robust code style in this codebase and I feel code formatters would be more trouble than they're worth.
+
+Alternatively, you may call it an artistic choice. Either way works for me.
 
 ## Updating Documentation
 
@@ -531,8 +535,8 @@ The muses of programming sing the songs ancient...
 ```
 What no developer wants to hear,
 but must however, hear gingerly
-Write the docs,
-or the code's a mystery!
+Write the ****** docs,
+or your code's a mystery!
 ```
 
 The myst2 engine aims to be **thoroughly** documented. This means that you need to document the features you add in the [myst 2 wiki](https://github.com/metayeti/myst2/wiki) (which serves as the official project's documentation). Contributing to this codebase you implicitly agree that you will document your new features accordingly.
