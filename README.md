@@ -1,5 +1,7 @@
 <img align="left" src="dev/logo.png?raw=true" height="95">
 
+## myst2
+
 myst2 is a lightweight 2D game engine for the web.
 
 > [!NOTE]
@@ -13,7 +15,7 @@ myst2 is a lightweight 2D game engine for the web.
 - Asset preloading and management
 - Mouse, touch and keyboard input
 - Persistent configuration
-- Many features out of the box (math, data structures/algorithms, randomness)
+- Many features out of the box
 - Extensions
 
 ## Reference and Quick Start

@@ -2,6 +2,38 @@
 
 Thank you for considering contributing to the myst2 engine. I welcome all contributions with an open mind, however to ensure long-term stability and quality of this project, I would ask you to please familiarize yourself with the rules outlined in this document before attempting to contribute. This is particularly important for code contributions, which must adhere to the strict [code style guide](#code-style-guide). You are also expected to [document your code](#updating-documentation) after the PR has been merged. Above all, the contribution needs to be of highest possible quality.
 
+
+## Table of Contents
+
+- [Code of Conduct](#code-of-conduct)
+- [How to Contribute](#how-to-contribute)
+  - [1. Reporting Bugs](#1-reporting-bugs)
+  - [2. Suggesting Features](#2-suggesting-features)
+  - [3. Submitting Code](#3-submitting-code)
+- [Code Style Guide](#code-style-guide)
+  - [1. Write optimal and performant code](#1-write-optimal-and-performant-code)
+  - [2. Keep the code simple and try not to repeat yourself too much](#2-keep-the-code-simple-and-try-not-to-repeat-yourself-too-much)
+  - [3. Use tabs and only tabs to indent code](#3-use-tabs-and-only-tabs-to-indent-code)
+  - [4. Use semicolons](#4-use-semicolons)
+  - [5. Stick to 80 columns as best you can](#5-stick-to-80-columns-as-best-you-can)
+  - [6. Make variables const by default](#6-make-variables-const-by-default)
+  - [7. All-uppercase any hardcoded constants](#7-all-uppercase-any-hardcoded-constants)
+  - [8. Use comments](#8-use-comments)
+  - [9. Add spaces when listing function parameters or items in an array](#9-add-spaces-when-listing-function-parameters-or-items-in-an-array)
+  - [10. Expand, and expand a lot](#10-expand-and-expand-a-lot)
+  - [11. Break long ternary expressions into multiple lines](#11-break-long-ternary-expressions-into-multiple-lines)
+  - [12. When chaining functions, break the calls into lines](#12-when-chaining-functions-break-the-calls-into-lines)
+  - [13. Use empty lines to separate code into logical units](#13-use-empty-lines-to-separate-code-into-logical-units)
+  - [14. Use the following if statement style](#14-use-the-following-if-statement-style)
+  - [15. Use the following switch statement style](#15-use-the-following-switch-statement-style)
+  - [16. Use the following class style](#16-use-the-following-class-style)
+  - [17. Don't overuse functional styles and avoid exposing functional API](#17-dont-overuse-functional-styles-and-avoid-exposing-functional-api)
+  - [18. Don't use getters and setters (unless you have a very good reason)](#18-dont-use-getters-and-setters-unless-you-have-a-very-good-reason)
+  - [19. Use JSDoc basically everywhere](#19-use-jsdoc-basically-everywhere)
+  - [20. When adding a new file, follow these steps](#20-when-adding-a-new-file-follow-these-steps)
+- [Why don't you use [my favorite autoformatter]?](#why-dont-you-use-my-favorite-autoformatter)
+- [Updating Documentation](#updating-documentation)
+
 ## Code of Conduct
 
 By participating in the development of this project, you agree to the following common-sense rules of engagement:
@@ -24,7 +56,7 @@ By participating in the development of this project, you agree to the following 
   - Screenshots or logs (if applicable)
   - Your environment (OS, browser version)
 
-### 2. Suggesting features
+### 2. Suggesting Features
 
 - Open an issue in the issue tracker with the label `feature-request`.
 - Describe the feature, why it's valuable, and any potential implementation ideas.
@@ -93,7 +125,7 @@ All code is inspected and approved by me so it may take some time before I get t
 
 - If you haven't already, update the [documentation](#updating-documentation) as necessary.
 
-## Code style guide
+## Code Style Guide
 
 Please adhere, as strictly as physics allows at any given moment, to the following style guide when adding code to this codebase.
 
