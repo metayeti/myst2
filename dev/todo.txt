@@ -1,4 +1,15 @@
+= 0.1.0 = (usable in production)
+Goals:
+[ ] All primary features implemented and documented.
+[ ] Playground app for testing code.
+
+- 0.0.3 -
+[ ] UI extension (basic impl.)
+
+- 0.0.2 -
+[ ] Simple game example
+
 - 0.0.1 -
-[ ] base class hierarchy + impl.
-[ ] hello world demo
-[ ] build system
+[ ] Basic class hierarchy
+[ ] "Hello, world" example
+[ ] Build system

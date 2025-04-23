@@ -1,7 +1,5 @@
 <img align="left" src="dev/logo.png?raw=true" height="95">
 
-## myst2
-
 myst2 is a lightweight 2D game engine for the web.
 
 > [!NOTE]
